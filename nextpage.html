@@ -9,28 +9,54 @@
             background-color: black;
             color: white;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
             text-align: center;
+            font-family: Arial, sans-serif;
         }
-        button {
+        .button {
             background-color: white;
             color: black;
+            padding: 15px;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
             cursor: pointer;
-            margin-top: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        button:hover {
-            background-color: gray;
+        .button img {
+            width: 20px;
+            height: 20px;
+        }
+        .volume-control {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to the Next Page</h1>
-    <button onclick="window.location.href='https://pastebin.com/0zJhCNit'">Go to Link</button>
+    <button class="button" onclick="window.location.href='https://pastebin.com/0zJhCNit'">
+        <img src="icon.png" alt="Icon"> Go to Link
+    </button>
+    
+    <audio id="background-music" loop muted>
+        <source src="eva-hardstyle.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.5" 
+        onchange="let audio = document.getElementById('background-music'); audio.volume = this.value; audio.muted = false;">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let audio = document.getElementById('background-music');
+            audio.play().catch(() => {
+                console.log('Autoplay prevented, waiting for user interaction');
+            });
+        });
+    </script>
 </body>
 </html>
+
