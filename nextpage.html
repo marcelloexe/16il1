@@ -92,7 +92,7 @@
 
             // View Counter
             let views = localStorage.getItem('viewCount') || 931;
-            views = parseInt(views) + 13;
+            views = parseInt(views) + 1;
             localStorage.setItem('viewCount', views);
             document.getElementById('views').textContent = views;
         });
