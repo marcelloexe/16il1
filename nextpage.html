@@ -18,6 +18,12 @@
             font-family: Arial, sans-serif;
             position: relative;
         }
+        .views-counter {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 18px;
+        }
         .icon-container {
             display: flex;
             justify-content: center;
@@ -52,6 +58,7 @@
     </style>
 </head>
 <body>
+    <div class="views-counter">Views: <span id="views">931</span></div>
     <img src="gif_center.gif" alt="Center GIF" class="center-gif">
     <h1>Welcome to the Underworld</h1>
     <div class="icon-container">
@@ -77,6 +84,7 @@
     </audio>
     <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.1" 
         onchange="document.getElementById('background-music').volume = this.value;">
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let audio = document.getElementById('background-music');
@@ -84,6 +92,12 @@
             audio.play().catch(() => {
                 console.log('Autoplay prevented, waiting for user interaction');
             });
+
+            // View Counter
+            let views = localStorage.getItem('viewCount') || 931;
+            views = parseInt(views) + 1;
+            localStorage.setItem('viewCount', views);
+            document.getElementById('views').textContent = views;
         });
     </script>
 </body>
