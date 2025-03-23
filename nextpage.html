@@ -1,4 +1,3 @@
-<!-- nextpage.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +53,7 @@
     </style>
 </head>
 <body>
-    <div class="views-counter">Views: <span id="views">931</span></div>
+    <div class="views-counter">Views: <span id="views">0</span></div>
     <h1>Welcome to the Underworld</h1>
     <div class="icon-container">
         <a href="https://pastebin.com/b1hqLkjJ">
@@ -88,10 +87,15 @@
                 console.log('Autoplay prevented, waiting for user interaction');
             });
 
-            // View Counter
-            let views = localStorage.getItem('viewCount') || 931;
-            views = parseInt(views) + 1;
+            // Setze die Views-Zahl auf 0
+            localStorage.setItem('viewCount', 0);
+            let views = parseInt(localStorage.getItem('viewCount')) || 0;
+            
+            // Erhöhe die Views um 1
+            views = views + 1;
             localStorage.setItem('viewCount', views);
+
+            // Zeige die neue Views-Zahl auf der Seite an
             document.getElementById('views').textContent = views;
         });
     </script>
