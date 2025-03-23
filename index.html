@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Enter</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://example.com/moon-background.jpg') no-repeat center center/cover;
+            cursor: pointer;
+        }
+        #enter-button {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body onclick="showButton()">
+    <button id="enter-button" onclick="redirectToPage()">Enter</button>
+    
+    <script>
+        function showButton() {
+            document.getElementById('enter-button').style.display = 'block';
+            document.body.onclick = null; // Entfernt den ersten Klick-Eventlistener
+        }
+        function redirectToPage() {
+            window.location.href = 'nextpage.html';
+        }
+    </script>
+</body>
+</html>
