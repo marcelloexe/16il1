@@ -1,3 +1,4 @@
+<!-- nextpage.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,13 @@
             height: 100vh;
             text-align: center;
             font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
         }
         .icon-button {
             background: none;
@@ -25,6 +33,12 @@
         .icon-button img {
             width: 50px;
             height: 50px;
+        }
+        .center-gif {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 15%;
         }
         .volume-control {
             margin-top: 20px;
@@ -38,22 +52,31 @@
     </style>
 </head>
 <body>
+    <img src="gif_center.gif" alt="Center GIF" class="center-gif">
     <h1>Welcome to the Underworld</h1>
-    
-    <a href="https://pastebin.com/b1hqLkjJ">
-        <button class="icon-button">
-            <img src="icon.png" alt="Link Icon">
-        </button>
-    </a>
-    
+    <div class="icon-container">
+        <a href="https://pastebin.com/b1hqLkjJ">
+            <button class="icon-button">
+                <img src="gif_left.gif" alt="Left Icon">
+            </button>
+        </a>
+        <a href="https://pastebin.com/b1hqLkjJ">
+            <button class="icon-button">
+                <img src="icon.png" alt="Center Icon">
+            </button>
+        </a>
+        <a href="https://pastebin.com/b1hqLkjJ">
+            <button class="icon-button">
+                <img src="gif_right.gif" alt="Right Icon">
+            </button>
+        </a>
+    </div>
     <audio id="background-music" loop autoplay>
         <source src="eva-hardstyle.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    
     <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.1" 
         onchange="document.getElementById('background-music').volume = this.value;">
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let audio = document.getElementById('background-music');
