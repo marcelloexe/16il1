@@ -33,6 +33,12 @@
         }
         .volume-control {
             margin-top: 20px;
+            -webkit-appearance: none;
+            width: 200px;
+            height: 10px;
+            background: white;
+            outline: none;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -42,16 +48,17 @@
         <img src="icon.png" alt="Icon"> Go to Link
     </button>
     
-    <audio id="background-music" loop muted>
+    <audio id="background-music" loop>
         <source src="eva-hardstyle.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.5" 
-        onchange="let audio = document.getElementById('background-music'); audio.volume = this.value; audio.muted = false;">
+        onchange="let audio = document.getElementById('background-music'); audio.volume = this.value;">
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let audio = document.getElementById('background-music');
+            audio.volume = 0.5;
             audio.play().catch(() => {
                 console.log('Autoplay prevented, waiting for user interaction');
             });
