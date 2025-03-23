@@ -3,43 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click to Enter</title>
+    <title>Underworld</title>
     <style>
         body {
-            margin: 0;
-            height: 100vh;
+            background-color: black;
+            color: white;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url('https://example.com/moon-background.jpg') no-repeat center center/cover;
-            cursor: pointer;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
-        #enter-button {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px 30px;
-            font-size: 18px;
-            background: white;
+        .icon-button {
+            background: none;
             border: none;
             cursor: pointer;
+            padding: 0;
+        }
+        .icon-button img {
+            width: 50px;
+            height: 50px;
+        }
+        .volume-control {
+            margin-top: 20px;
+            -webkit-appearance: none;
+            width: 200px;
+            height: 10px;
+            background: white;
+            outline: none;
             border-radius: 5px;
+        }
+        .enter-text {
+            font-size: 24px;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body onclick="showButton()">
-    <button id="enter-button" onclick="redirectToPage()">Enter</button>
+<body>
+    <h1>Welcome to the Underworld</h1>
+    
+    <a href="file:///C:/Users/marce/Downloads/Marcello.txt">
+        <button class="icon-button">
+            <img src="icon.png" alt="Link Icon">
+        </button>
+    </a>
+    
+    <p class="enter-text">Enter</p>
+    
+    <audio id="background-music" loop autoplay>
+        <source src="eva-hardstyle.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.1" 
+        onchange="document.getElementById('background-music').volume = this.value;">
     
     <script>
-        function showButton() {
-            document.getElementById('enter-button').style.display = 'block';
-            document.body.onclick = null; // Entfernt den ersten Klick-Eventlistener
-        }
-        function redirectToPage() {
-            window.location.href = 'nextpage.html';
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            let audio = document.getElementById('background-music');
+            audio.volume = 0.1;
+            audio.play().catch(() => {
+                console.log('Autoplay prevented, waiting for user interaction');
+            });
+        });
     </script>
 </body>
 </html>
