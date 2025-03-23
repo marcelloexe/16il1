@@ -87,12 +87,13 @@
                 console.log('Autoplay prevented, waiting for user interaction');
             });
 
-            // Setze die Views-Zahl auf 0
-            localStorage.setItem('viewCount', 0);
+            // Holen Sie sich die gespeicherten Views aus dem localStorage
             let views = parseInt(localStorage.getItem('viewCount')) || 0;
-            
+
             // Erhöhe die Views um 1
             views = views + 1;
+
+            // Speichern der neuen Views-Zahl
             localStorage.setItem('viewCount', views);
 
             // Zeige die neue Views-Zahl auf der Seite an
