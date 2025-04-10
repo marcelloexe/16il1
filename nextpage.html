@@ -9,7 +9,12 @@
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 50px;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Elemente nach oben ausrichten */
         }
 
         .views-counter {
@@ -46,6 +51,7 @@
         img.angel {
             width: 200px;
             margin-bottom: 20px;
+            margin-top: 20px; /* Damit das Bild höher ist */
             animation: swing 4s ease-in-out infinite; /* Animation hinzufügen */
         }
 
@@ -68,16 +74,20 @@
             font-size: 12px;
             color: #aaa;
         }
+
+        h1 {
+            margin-top: 80px; /* Titel nach unten verschieben */
+        }
     </style>
 </head>
 <body>
-
-    <div class="views-counter">Views: <span id="views">0</span></div>
 
     <!-- Angel Image oben -->
     <img src="angel.png" alt="Angel" class="angel">
 
     <h1>Welcome to the Underworld</h1>
+
+    <div class="views-counter">Views: <span id="views">0</span></div>
 
     <div class="icon-container">
         <a href="https://pastebin.com/b1hqLkjJ">
