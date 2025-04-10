@@ -46,6 +46,19 @@
         img.angel {
             width: 200px;
             margin-bottom: 20px;
+            animation: swing 4s ease-in-out infinite; /* Animation hinzufügen */
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(-10deg); /* Startwinkel */
+            }
+            50% {
+                transform: rotate(10deg); /* Endwinkel (andere Richtung) */
+            }
+            100% {
+                transform: rotate(-10deg); /* Zurück zum Startwinkel */
+            }
         }
 
         .footer {
