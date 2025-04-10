@@ -14,8 +14,8 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Elemente nach oben ausrichten */
-            align-items: center; /* Zentriert den gesamten Inhalt */
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .views-counter {
@@ -51,19 +51,19 @@
 
         img.angel {
             width: 200px;
-            margin-top: 20px; /* Bild oben anordnen */
-            animation: swing 4s ease-in-out infinite; /* Schaukeln-Animation */
+            margin-top: 20px;
+            animation: swing 4s ease-in-out infinite;
         }
 
         @keyframes swing {
             0% {
-                transform: rotate(-10deg); /* Startwinkel */
+                transform: rotate(-10deg);
             }
             50% {
-                transform: rotate(10deg); /* Endwinkel (andere Richtung) */
+                transform: rotate(10deg);
             }
             100% {
-                transform: rotate(-10deg); /* Zurück zum Startwinkel */
+                transform: rotate(-10deg);
             }
         }
 
@@ -76,13 +76,12 @@
         }
 
         h1 {
-            margin-top: 60px; /* Titel nach unten verschieben */
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Angel Image oben, zentriert -->
     <img src="angel.png" alt="Angel" class="angel">
 
     <h1>Welcome to the Underworld</h1>
@@ -111,16 +110,17 @@
         Made by 16il
     </div>
 
+    <audio autoplay loop>
+        <source src="angel.mp3" type="audio/mpeg">
+        Dein Browser unterstützt kein HTML5-Audio.
+    </audio>
+
     <script>
-        // Anzahl der Views simulieren (bei jedem Laden der Seite erhöhen)
         let views = localStorage.getItem('views') ? parseInt(localStorage.getItem('views')) : 0;
         views++;
         localStorage.setItem('views', views);
         document.getElementById('views').innerText = views;
     </script>
-
-</body>
-</html>
 
 </body>
 </html>
