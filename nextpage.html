@@ -2,59 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Underworld</title>
+    <title>Welcome to the Underworld</title>
     <style>
         body {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
-            position: relative;
+            text-align: center;
+            padding-top: 50px;
         }
+
         .views-counter {
             position: absolute;
             top: 10px;
             right: 20px;
-            font-size: 18px;
+            font-size: 14px;
+            color: #aaa;
         }
+
         .icon-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 50px;
+            gap: 20px;
+            margin-top: 30px;
         }
+
         .icon-button {
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0;
+            transition: transform 0.3s ease;
         }
+
+        .icon-button:hover {
+            transform: scale(1.1);
+        }
+
         .icon-button img {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: auto;
         }
-        .volume-control {
-            margin-top: 20px;
-            -webkit-appearance: none;
+
+        img.angel {
             width: 200px;
-            height: 10px;
-            background: white;
-            outline: none;
-            border-radius: 5px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+
     <div class="views-counter">Views: <span id="views">0</span></div>
+
+    <!-- Angel Image oben -->
+    <img src="angel.png" alt="Angel" class="angel">
+
     <h1>Welcome to the Underworld</h1>
+
     <div class="icon-container">
         <a href="https://pastebin.com/b1hqLkjJ">
             <button class="icon-button">
@@ -72,33 +75,6 @@
             </button>
         </a>
     </div>
-    <audio id="background-music" loop autoplay>
-        <source src="eva-hardstyle.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <input class="volume-control" type="range" min="0" max="1" step="0.1" value="0.1" 
-        onchange="document.getElementById('background-music').volume = this.value;">
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let audio = document.getElementById('background-music');
-            audio.volume = 0.1;
-            audio.play().catch(() => {
-                console.log('Autoplay prevented, waiting for user interaction');
-            });
 
-            // Holen Sie sich die gespeicherten Views aus dem localStorage
-            let views = parseInt(localStorage.getItem('viewCount')) || 0;
-
-            // Erhöhe die Views um 1
-            views = views + 1;
-
-            // Speichern der neuen Views-Zahl
-            localStorage.setItem('viewCount', views);
-
-            // Zeige die neue Views-Zahl auf der Seite an
-            document.getElementById('views').textContent = views;
-        });
-    </script>
 </body>
 </html>
